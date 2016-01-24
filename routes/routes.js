@@ -3,7 +3,6 @@ var ifsc = require('./ifsc');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/routes', ifsc.addDataToDb);
 router.get('/api/ifsc/:ifscCode', ifsc.findByIfscCode);
 router.get('/api/micr/:micrCode', ifsc.findByMicrCode);
 router.get('/api/bank/:bank', ifsc.findByBank);
