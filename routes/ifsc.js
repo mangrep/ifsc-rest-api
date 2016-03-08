@@ -107,6 +107,21 @@ exports.findByBranch = function(req, res, next){
     });
 };
 
+/*find documents with branch name*/
+exports.listBranches = function(req, res, next){
+    id ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
+    db.collection(collection,function(err,collection){
+        if(!err){
+            collection.find({}, {'BRANCH' : 1,  '_id':0}).toArray(function(err,items){
+                if(!err){
+                    res.send(items);
+                }
+            });
+        }
+    });
+};
+
 /*insert data to ifsc_dtl collection from the.xls file*/
 var fs = require('fs');
 function getUserHome() {

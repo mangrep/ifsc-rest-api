@@ -7,6 +7,7 @@ router.get('/api/ifsc/:ifscCode', ifsc.findByIfscCode);
 router.get('/api/micr/:micrCode', ifsc.findByMicrCode);
 router.get('/api/bank/:bank', ifsc.findByBank);
 router.get('/api/branch/:branch', ifsc.findByBranch);
+router.get('/api/listbranch', ifsc.listBranches);
 
 
 /* POST home page. */
