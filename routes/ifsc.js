@@ -14,10 +14,10 @@ var db = new mongoDb(dbName,server);
 /*open connection to db;*/
 db.open(function(err,db){
     if(!err){
-        console.log("Success : Connected to ifsc Database..!!");
+        //console.log("Success : Connected to ifsc Database..!!");
         db.collection(collection, {strict:true}, function(err,collection){
          if(err){
-             console.log("WARN : Cannot find ifsc_dtl, So creating one..!!");
+        //     console.log("WARN : Cannot find ifsc_dtl, So creating one..!!");
              populateDb();
          }
          });
@@ -30,6 +30,7 @@ db.open(function(err,db){
 /*find documents with ifsc code*/
 exports.findByIfscCode = function(req, res, next){
     id ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
         id = req.params.ifscCode;
     }else if(req.method === "POST"){
@@ -49,6 +50,7 @@ exports.findByIfscCode = function(req, res, next){
 /*find documents with micr code*/
 exports.findByMicrCode = function(req, res, next){
     id ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
         id = req.params.micrCode;
     }else if(req.method === "POST"){
@@ -68,6 +70,7 @@ exports.findByMicrCode = function(req, res, next){
 /*find documents with bank name*/
 exports.findByBank = function(req, res, next){
     id ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
         id = req.params.bank;
     }else if(req.method === "POST"){
@@ -87,6 +90,7 @@ exports.findByBank = function(req, res, next){
 /*find documents with branch name*/
 exports.findByBranch = function(req, res, next){
     id ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
         id = req.params.branch;
     }else if(req.method === "POST"){
@@ -143,7 +147,4 @@ populateDb = function(){
         return files_;
     }
     getFiles(userHome+fDirName);
-    console.log('Finished adding data');
-
-
 };
