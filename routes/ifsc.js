@@ -69,20 +69,15 @@ exports.findByMicrCode = function(req, res, next){
 
 /*find documents with bank name*/
 exports.findByBank = function(req, res, next){
-    id ="0";
+    id = req.params.bank;
 		res.header("Access-Control-Allow-Origin",  "*");
-    if(req.method === "GET"){
-        id = req.params.bank;
-    }else if(req.method === "POST"){
-        id = req.body.bank;
-    }
     db.collection(collection,function(err,collection){
         if(!err){
-            collection.find({'BANK': id}).toArray(function(err,items){
-                if(!err){
-                    res.send(items);
-                }
-            });
+					  collection.distinct("BRANCH",{"BANK": id},{"BRANCH":1} ,function(err, items){
+            if(!err){
+               res.send(items);
+             }
+             });
         }
     });
 };
@@ -113,15 +108,30 @@ exports.listBranches = function(req, res, next){
 		res.header("Access-Control-Allow-Origin",  "*");
     db.collection(collection,function(err,collection){
         if(!err){
-            collection.find({}, {'BRANCH' : 1,  '_id':0}).toArray(function(err,items){
-                if(!err){
-                    res.send(items);
-                }
-            });
+					  collection.distinct("BANK", function(err, items){
+            if(!err){
+               res.send(items);
+             }
+             });
         }
     });
 };
 
+exports.findbyBankBranch = function(req, res, next){
+    bankName = req.params.bankname;
+    branchName = req.params.branchname;
+    console.log(bankName + "   " + branchName);
+		res.header("Access-Control-Allow-Origin",  "*");
+    db.collection(collection,function(err,collection){
+        if(!err){
+					  collection.find({"BANK" : bankName, "BRANCH" : branchName}).toArray( function(err, items){
+            if(!err){
+               res.send(items);
+             }
+             });
+        }
+    });
+};
 /*insert data to ifsc_dtl collection from the.xls file*/
 var fs = require('fs');
 function getUserHome() {
