@@ -22,7 +22,7 @@ db.open(function(err,db){
          }
          });
     } else {
-        console.error("Error : "+err.toString());
+        console.error("Error : " + err.toString());
     }
 
 });
@@ -75,6 +75,7 @@ exports.getListOfBankByDistrict = function(req, res, next){
     }else if(req.method === "POST"){
         district = req.body.state;
     }
+		district = district.toUpperCase();
     db.collection(collection,function(err,collection){
         if(!err){
             collection.find({'DISTRICT': district}).toArray(function(err,items){
@@ -87,16 +88,17 @@ exports.getListOfBankByDistrict = function(req, res, next){
 };
 /*find documents with micr code*/
 exports.findByMicrCode = function(req, res, next){
-    id ="0";
+    micrCode ="0";
 		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
-        id = req.params.micrCode;
+        micrCode = req.params.micrCode;
     }else if(req.method === "POST"){
-        id = req.body.micrCode;
+        micrCode = req.body.micrCode;
     }
+		micrCode = micrCode.toUpperCase();
     db.collection(collection,function(err,collection){
         if(!err){
-            collection.find({'MICR CODE': id}).toArray(function(err,items){
+            collection.find({'MICR CODE': micrCode}).toArray(function(err,items){
                 if(!err){
                     res.send(items);
                 }
@@ -107,11 +109,12 @@ exports.findByMicrCode = function(req, res, next){
 
 /*find documents with bank name*/
 exports.findByBank = function(req, res, next){
-    id = req.params.bank;
+    bankName = req.params.bank;
+		bankName = bankName.toUpperCase()
 		res.header("Access-Control-Allow-Origin",  "*");
     db.collection(collection,function(err,collection){
         if(!err){
-					  collection.distinct("BRANCH",{"BANK": id},{"BRANCH":1} ,function(err, items){
+					  collection.distinct("BRANCH",{"BANK": bankName},{"BRANCH":1} ,function(err, items){
             if(!err){
                res.send(items);
              }
@@ -122,19 +125,27 @@ exports.findByBank = function(req, res, next){
 
 /*find documents with branch name*/
 exports.findByBranch = function(req, res, next){
-    id ="0";
+	  console.log("Inside findByBranch");
+    branchName ="0";
 		res.header("Access-Control-Allow-Origin",  "*");
     if(req.method === "GET"){
-        id = req.params.branch;
+        branchName = req.params.branch;
     }else if(req.method === "POST"){
-        id = req.body.branch;
+        branchName = req.body.branch;
     }
+		branchName = branchName.toUpperCase();
     db.collection(collection,function(err,collection){
         if(!err){
-            collection.find({'BRANCH': id}).toArray(function(err,items){
+            collection.find({'BRANCH': branchName}).toArray(function(err,items){
                 if(!err){
-                    res.send(items);
-                }
+									  if (items.length > 0)
+                      res.send(items);
+						        else
+                      res.send({"status": "failed", "message":"No data found"});
+
+                }else{
+                      res.send({"status": "failed", "message":"Somthing went wrong. Please try again."});
+								}
             });
         }
     });
@@ -147,9 +158,15 @@ exports.listBranches = function(req, res, next){
     db.collection(collection,function(err,collection){
         if(!err){
 					  collection.distinct("BANK", function(err, items){
-            if(!err){
-               res.send(items);
-             }
+							if(!err){
+									if (items.length > 0)
+										res.send(items);
+									else
+										res.send({"status": "failed", "message":"No data found"});
+
+							}else{
+										res.send({"status": "failed", "message":"Somthing went wrong. Please try again."});
+							}
              });
         }
     });
