@@ -66,6 +66,25 @@ exports.getListOfBankByState = function(req, res, next){
         }
     });
 };
+/*get bank list with district name*/
+exports.getListOfBankByDistrict = function(req, res, next){
+    district ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
+    if(req.method === "GET"){
+        district = req.params.district;
+    }else if(req.method === "POST"){
+        district = req.body.state;
+    }
+    db.collection(collection,function(err,collection){
+        if(!err){
+            collection.find({'DISTRICT': district}).toArray(function(err,items){
+                if(!err){
+                    res.send(items);
+                }
+            });
+        }
+    });
+};
 /*find documents with micr code*/
 exports.findByMicrCode = function(req, res, next){
     id ="0";
