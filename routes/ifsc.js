@@ -14,10 +14,10 @@ var db = new mongoDb(dbName,server);
 /*open connection to db;*/
 db.open(function(err,db){
     if(!err){
-        //console.log("Success : Connected to ifsc Database..!!");
+        console.log("Success : Connected to ifsc Database..!!");
         db.collection(collection, {strict:true}, function(err,collection){
          if(err){
-        //     console.log("WARN : Cannot find ifsc_dtl, So creating one..!!");
+             console.log("WARN : Cannot find ifsc_dtl, So creating one..!!");
              populateDb();
          }
          });
@@ -47,6 +47,25 @@ exports.findByIfscCode = function(req, res, next){
     });
 };
 
+/*get bank list with state name*/
+exports.getListOfBankByState = function(req, res, next){
+    state ="0";
+		res.header("Access-Control-Allow-Origin",  "*");
+    if(req.method === "GET"){
+        state = req.params.state;
+    }else if(req.method === "POST"){
+        state = req.body.state;
+    }
+    db.collection(collection,function(err,collection){
+        if(!err){
+            collection.find({'STATE': state}).toArray(function(err,items){
+                if(!err){
+                    res.send(items);
+                }
+            });
+        }
+    });
+};
 /*find documents with micr code*/
 exports.findByMicrCode = function(req, res, next){
     id ="0";

@@ -9,6 +9,7 @@ router.get('/api/bank/:bank', ifsc.findByBank);
 router.get('/api/branch/:branch', ifsc.findByBranch);
 router.get('/api/listbranch', ifsc.listBranches);
 router.get('/api/getbank/:bankname/:branchname', ifsc.findbyBankBranch);
+router.get('/api/state/:state', ifsc.getListOfBankByState);
 
 
 /* POST home page. */
