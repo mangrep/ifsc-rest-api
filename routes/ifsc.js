@@ -115,9 +115,15 @@ exports.findByBank = function(req, res, next){
     db.collection(collection,function(err,collection){
         if(!err){
 					  collection.distinct("BRANCH",{"BANK": bankName},{"BRANCH":1} ,function(err, items){
-            if(!err){
-               res.send(items);
-             }
+							if(!err){
+									if (items.length > 0)
+										res.send({"status": "success",  "data":items});
+									else
+										res.send({"status": "failed", "message":"No data found"});
+
+							}else{
+										res.send({"status": "failed", "message":"Somthing went wrong. Please try again."});
+							}
              });
         }
     });
@@ -151,8 +157,8 @@ exports.findByBranch = function(req, res, next){
     });
 };
 
-/*find documents with branch name*/
-exports.listBranches = function(req, res, next){
+/*get list of bank name*/
+exports.listBanks = function(req, res, next){
     id ="0";
 		res.header("Access-Control-Allow-Origin",  "*");
     db.collection(collection,function(err,collection){
@@ -160,7 +166,7 @@ exports.listBranches = function(req, res, next){
 					  collection.distinct("BANK", function(err, items){
 							if(!err){
 									if (items.length > 0)
-										res.send(items);
+										res.send({"status": "success",  "data":items});
 									else
 										res.send({"status": "failed", "message":"No data found"});
 
@@ -179,10 +185,17 @@ exports.findbyBankBranch = function(req, res, next){
 		res.header("Access-Control-Allow-Origin",  "*");
     db.collection(collection,function(err,collection){
         if(!err){
-					  collection.find({"BANK" : bankName, "BRANCH" : branchName}).toArray( function(err, items){
-            if(!err){
-               res.send(items);
-             }
+					  collection.findOne({"BANK" : bankName, "BRANCH" : branchName},  function(err, items){
+							if(!err){
+								 if(items){
+										items.MICRCODE = items['MICR CODE']
+										res.send({"status": "success",  "data":items});
+									}else{
+										res.send({"status": "failed", "message":"No data found"});
+									}
+							}else{
+										res.send({"status": "failed", "message":"Somthing went wrong. Please try again."});
+							}
              });
         }
     });

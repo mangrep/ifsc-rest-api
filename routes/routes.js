@@ -7,7 +7,7 @@ router.get('/api/ifsc/:ifscCode', ifsc.findByIfscCode);
 router.get('/api/micr/:micrCode', ifsc.findByMicrCode);
 router.get('/api/bank/:bank', ifsc.findByBank);
 router.get('/api/branch/:branch', ifsc.findByBranch);
-router.get('/api/listbranch', ifsc.listBranches);
+router.get('/api/listbanks', ifsc.listBanks);
 router.get('/api/getbank/:bankname/:branchname', ifsc.findbyBankBranch);
 router.get('/api/state/:state', ifsc.getListOfBankByState);
 router.get('/api/district/:district', ifsc.getListOfBankByDistrict);
