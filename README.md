@@ -10,11 +10,11 @@
  
  ###Get bank by IFSC code.
 
-####URI : http://techm.co.in:3000/api/ifsc/{IFSC CODE IN UPPERCASE}
+####URI : http://api.techm.co.in/api/ifsc/{IFSC CODE IN UPPERCASE}
 Request Type: GET
 
 Example:
- http://techm.co.in:3000/api/ifsc/SBIN0000138
+ http://api.techm.co.in/api/ifsc/SBIN0000138
 Sample response:
 
     [{
@@ -30,11 +30,11 @@ Sample response:
     	"DISTRICT": "MUZAFFARPUR"
     }]
 ###Get bank by MICR code
-####URI : http://techm.co.in:3000/api/micr/{MICR CODE}
+####URI : http://api.techm.co.in/api/micr/{MICR CODE}
 Request Type: GET
 
 Example: 
-http://techm.co.in:3000/api/micr/842002002
+http://api.techm.co.in/api/micr/842002002
 
     [{
     	"_id": "56a4e61d277fdd0a3417ebbb",
@@ -49,13 +49,13 @@ http://techm.co.in:3000/api/micr/842002002
     	"DISTRICT": "MUZAFFARPUR"
     }]
 
-###Get banks by bank name name
+###Get banks by bank name
 
-####URI : http://techm.co.in:3000/api/bank/{Bank NAME in upper case}
+####URI : http://api.techm.co.in/api/bank/{Bank NAME in upper case}
 Request Type: GET
 
 Example:
-http://techm.co.in:3000/api/bank/ABU%20DHABI%20COMMERCIAL%20BANK
+http://api.techm.co.in/api/bank/ABU%20DHABI%20COMMERCIAL%20BANK
 Sample response:
 
     [{
@@ -82,11 +82,11 @@ Sample response:
     	"DISTRICT": "BANGALORE URBAN"
     }]
 ####Get banks by branch location
-URI : http://techm.co.in:3000/api/branch/
+URI : http://api.techm.co.in/api/branch/
 Request type: GET
 
 Example:
-http://techm.co.in:3000/api/branch/KASHMIR
+http://api.techm.co.in/api/branch/KASHMIR
 
     [{
     	"_id": "56a4e624277fdd0a34186909",
