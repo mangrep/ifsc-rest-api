@@ -1,5 +1,4 @@
 var mongo = require('mongodb');
-var node_xj = require("xls-to-json");
 var mongoServer = mongo.Server,
     mongoDb = mongo.Db,
     BSON = mongo.BSONPure;
@@ -15,14 +14,8 @@ var db = new mongoDb(dbName,server);
 db.open(function(err,db){
     if(!err){
         console.log("Success : Connected to ifsc Database..!!");
-        db.collection(collection, {strict:true}, function(err,collection){
-         if(err){
-             console.log("WARN : Cannot find ifsc_dtl, So creating one..!!");
-             populateDb();
-         }
-         });
     } else {
-        console.error("Error : " + err.toString());
+        console.error("Error : Unable to connect to MonoDB" + err.toString());
     }
 
 });
@@ -199,45 +192,4 @@ exports.findbyBankBranch = function(req, res, next){
              });
         }
     });
-};
-/*insert data to ifsc_dtl collection from the.xls file*/
-var fs = require('fs');
-function getUserHome() {
-    return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
-}
-populateDb = function(){
-    var fDirName = '/rbi/';
-    var userHome = getUserHome();
-    console.log(userHome+fDirName);
-    function getFiles (dir, files_){
-        files_ = files_ || [];
-        var files = fs.readdirSync(dir);
-        for (var i in files){
-            var name = dir + '/' + files[i];
-            if (fs.statSync(name).isDirectory()){
-                getFiles(name, files_);
-            } else {
-                files_.push(name);
-                node_xj({
-                    input: name,  // input xls
-                    output: userHome+'/json/json.json'// output json
-                }, function(err, result) {
-                    if(err) {
-                        console.error(err);
-                    } else {
-                        db.collection(collection,function(err,collection){
-                            if(!err){
-                                collection.insert(result,{safe:true},function(err,items){
-                                    if(!err){
-                                    }
-                                });
-                            }
-                        });
-                    }
-                });
-            }
-        }
-        return files_;
-    }
-    getFiles(userHome+fDirName);
 };
