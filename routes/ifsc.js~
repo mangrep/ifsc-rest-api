@@ -146,6 +146,7 @@ exports.findByBank = function(req, res, next) {
 
 /*find documents with branch name*/
 exports.findByBranch = function(req, res, next) {
+    console.log("Inside findByBranch");
     branchName = "0";
     res.header("Access-Control-Allow-Origin", "*");
     if (req.method === "GET") {
@@ -210,6 +211,7 @@ exports.listBanks = function(req, res, next) {
 exports.findbyBankBranch = function(req, res, next) {
     bankName = req.params.bankname;
     branchName = req.params.branchname;
+    console.log(bankName + "   " + branchName);
     res.header("Access-Control-Allow-Origin", "*");
     db.collection(collection, function(err, collection) {
         if (!err) {
