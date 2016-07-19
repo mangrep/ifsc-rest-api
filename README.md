@@ -24,11 +24,10 @@ Example:
 
 Sample response:
 
+       {"status": "success", "data":["ABU DHABI COMMERCIAL BANK","ABHYUDAYA COOPERATIVE BANK LIMITED", .............]}
 
-   {"status": "success", "data":["ABU DHABI COMMERCIAL BANK","ABHYUDAYA COOPERATIVE BANK LIMITED", .............]}
-
-
- ###Get bank by IFSC code.
+   
+###Get bank by IFSC code.
 
 ####URI : `http://api.techm.co.in/api/ifsc/{IFSC CODE}`
 Request Type: GET
@@ -49,8 +48,8 @@ Sample response:
     	"CITY": "MUZAFFARPUR",
     	"DISTRICT": "MUZAFFARPUR"
     }]
+    
 ###Get bank by MICR code
-
 ####URI : `http://api.techm.co.in/api/micr/{MICR CODE}`
 Request Type: GET
 
@@ -73,7 +72,6 @@ http://api.techm.co.in/api/micr/842002002
 ###Get banks by bank name
 
 ####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
-
 Request Type: GET
 
 Example:
@@ -105,7 +103,8 @@ Sample response:
     }]
     
 ####Get banks by branch location
-URI : `http://api.techm.co.in/api/branch/{BRANCH NAM`E}
+URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
+
 Request type: GET
 
 Example:
@@ -133,7 +132,6 @@ Request Type: GET
 
 Example:
 http://api.techm.co.in/api/district/mumbai
-http://api.techm.co.in/api/district/patna
 
 Sample Response:
 
@@ -147,11 +145,13 @@ Request Type: GET
 
 Example:
 http://api.techm.co.in/api/state/goa
+
 http://api.techm.co.in/api/state/Uttar%20pradesh
 
 Sample Response:
 
     {"status":"success","data":[{"_id":"56e022edd632a3912074e793","STATE":"GOA","BANK":"ALLAHABAD BANK","IFSC":"ALLA0210994","MICR CODE":"403010003","BRANCH":"MAPUCA","CONTACT":"2262801","ADDRESS":"HOTEL SATYA HEERA BUILDING, NEAR HANUMAN TEMPLE, MAPUSA, NORTHGOA 403507","CITY":"MAPUSA","DISTRICT":"NORTH GOA"}]}
+
 
 
 
