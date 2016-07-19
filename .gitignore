@@ -28,7 +28,7 @@ node_modules
 
 # Optional npm cache directory
 .npm
-
+.idea
 .project
 # Optional REPL history
 .node_repl_history

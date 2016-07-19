@@ -171,11 +171,11 @@ exports.listByBankName = function(req, res, next) {
 	bankname = "";
 	res.header("Access-Control-Allow-Origin", "*");
 	if (req.method === "GET") {
-		bankname = req.params.bank;
+		bankname = req.params.bankname;
 	} else if (req.method === "POST") {
-		bankname = req.body.bank;
+		bankname = req.body.bankname;
 	}
-	
+
 	db.collection(collection, function(err, collection) {
 		if (!err) {
 			collection.find({
@@ -184,7 +184,7 @@ exports.listByBankName = function(req, res, next) {
 				if (!err) {
 					if (items.length > 0)
 						res.send({
-							"status" : "failed",
+							"status" : "success",
 							"data" : items
 						});
 					else
@@ -202,7 +202,6 @@ exports.listByBankName = function(req, res, next) {
 		}
 	});
 };
-
 
 /* find documents with branch name */
 exports.findByBranch = function(req, res, next) {
