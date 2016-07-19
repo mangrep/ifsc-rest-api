@@ -3,13 +3,30 @@
 
 ###Features provided 
 
- 1. Get bank by IFSC code.
- 2. Get bank by MICR code.
- 3. Get banks by bank name.
- 4. Get banks by branch location.
+ 1. Get supported bank list
+ 2. Get bank by IFSC code.
+ 3. Get bank by MICR code.
+ 4. Get banks by bank name.
+ 5. Get banks by branch location.
+ 6. Get banks by district
+ 7. Get banks by state
 
 
-##Documentation
+##API Documentation
+
+
+### Get supported bank list
+
+####URI : `http://api.techm.co.in/api/listbanks`
+
+Example:
+ http://api.techm.co.in/api/listbanks
+
+Sample response:
+
+
+   {"status": "success", "data":["ABU DHABI COMMERCIAL BANK","ABHYUDAYA COOPERATIVE BANK LIMITED", .............]}
+
 
  ###Get bank by IFSC code.
 
@@ -33,6 +50,7 @@ Sample response:
     	"DISTRICT": "MUZAFFARPUR"
     }]
 ###Get bank by MICR code
+
 ####URI : `http://api.techm.co.in/api/micr/{MICR CODE}`
 Request Type: GET
 
@@ -55,6 +73,7 @@ http://api.techm.co.in/api/micr/842002002
 ###Get banks by bank name
 
 ####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
+
 Request Type: GET
 
 Example:
@@ -84,6 +103,7 @@ Sample response:
     	"CITY": "BANGALORE",
     	"DISTRICT": "BANGALORE URBAN"
     }]
+    
 ####Get banks by branch location
 URI : `http://api.techm.co.in/api/branch/{BRANCH NAM`E}
 Request type: GET
@@ -104,6 +124,34 @@ http://api.techm.co.in/api/branch/KASHMIR
     	"DISTRICT": "HAMIRPUR",
     	"STATE": "HIMACHAL PRADESH"
     }]
+
+###Get bank list by district name
+
+####URI : `http://api.techm.co.in/api/district/{district name}`
+
+Request Type: GET
+
+Example:
+http://api.techm.co.in/api/district/mumbai
+http://api.techm.co.in/api/district/patna
+
+Sample Response:
+
+    {"status":"success","data":[{"_id":"56e022edd632a3912074e793","STATE":"GOA","BANK":"ALLAHABAD BANK","IFSC":"ALLA0210994","MICR CODE":"403010003","BRANCH":"MAPUCA","CONTACT":"2262801","ADDRESS":"HOTEL SATYA HEERA BUILDING, NEAR HANUMAN TEMPLE, MAPUSA, NORTHGOA 403507","CITY":"MAPUSA","DISTRICT":"NORTH GOA"}]}
+
+###Get bank list by state name
+
+####URI : `http://api.techm.co.in/api/state/{state name}`
+
+Request Type: GET
+
+Example:
+http://api.techm.co.in/api/state/goa
+http://api.techm.co.in/api/state/Uttar%20pradesh
+
+Sample Response:
+
+    {"status":"success","data":[{"_id":"56e022edd632a3912074e793","STATE":"GOA","BANK":"ALLAHABAD BANK","IFSC":"ALLA0210994","MICR CODE":"403010003","BRANCH":"MAPUCA","CONTACT":"2262801","ADDRESS":"HOTEL SATYA HEERA BUILDING, NEAR HANUMAN TEMPLE, MAPUSA, NORTHGOA 403507","CITY":"MAPUSA","DISTRICT":"NORTH GOA"}]}
 
 
 
@@ -283,3 +331,4 @@ http://api.techm.co.in/api/branch/KASHMIR
 172. WOORI BANK
 173. YES BANK
 174. ZILA SAHAKRI BANK LIMITED GHAZIABAD
+
