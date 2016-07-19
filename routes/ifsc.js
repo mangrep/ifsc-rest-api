@@ -134,14 +134,13 @@ exports.findByMicrCode = function(req, res, next) {
 };
 
 /* find documents with bank name */
-exports.findByBank = function(req, res, next) {
-	bankName = req.params.bank;
-	bankName = bankName.toUpperCase()
+exports.listbranches = function(req, res, next) {
+	bankName = req.params.bankname;
 	res.header("Access-Control-Allow-Origin", "*");
 	db.collection(collection, function(err, collection) {
 		if (!err) {
 			collection.distinct("BRANCH", {
-				"BANK" : bankName
+				"BANK" : bankName.toUpperCase()
 			}, {
 				"BRANCH" : 1
 			}, function(err, items) {
@@ -149,6 +148,43 @@ exports.findByBank = function(req, res, next) {
 					if (items.length > 0)
 						res.send({
 							"status" : "success",
+							"data" : items.sort()
+						});
+					else
+						res.send({
+							"status" : "failed",
+							"message" : "No data found"
+						});
+				} else {
+					res.send({
+						"status" : "failed",
+						"message" : "Somthing went wrong. Please try again."
+					});
+				}
+			});
+		}
+	});
+};
+
+/* find documents with find Bank name */
+exports.listByBankName = function(req, res, next) {
+	bankname = "";
+	res.header("Access-Control-Allow-Origin", "*");
+	if (req.method === "GET") {
+		bankname = req.params.bank;
+	} else if (req.method === "POST") {
+		bankname = req.body.bank;
+	}
+	
+	db.collection(collection, function(err, collection) {
+		if (!err) {
+			collection.find({
+				'BANK' : bankname.toUpperCase()
+			}).toArray(function(err, items) {
+				if (!err) {
+					if (items.length > 0)
+						res.send({
+							"status" : "failed",
 							"data" : items
 						});
 					else
@@ -166,6 +202,7 @@ exports.findByBank = function(req, res, next) {
 		}
 	});
 };
+
 
 /* find documents with branch name */
 exports.findByBranch = function(req, res, next) {
@@ -212,7 +249,7 @@ exports.listBanks = function(req, res, next) {
 					if (items.length > 0)
 						res.send({
 							"status" : "success",
-							"data" : items
+							"data" : items.sort()
 						});
 					else
 						res.send({
