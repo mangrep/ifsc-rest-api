@@ -299,3 +299,82 @@ exports.findbyBankBranch = function(req, res, next) {
 		}
 	});
 };
+
+// V1 apis
+
+/* find banks with ifsc code */
+exports.findByIfscCode_v1 = function(req, res, next) {
+	id = "0";
+	res.header("Access-Control-Allow-Origin", "*");
+	if (req.method === "GET") {
+		id = req.params.ifscCode;
+	} else if (req.method === "POST") {
+		id = req.body.ifscCode;
+	}
+	db.collection(collection, function(err, collection) {
+		if (!err) {
+			collection.findOne({
+				'IFSC' : id
+			}, function(err, item) {
+				if (!err) {
+					if (item) {
+						item.MICRCODE = item['MICR CODE']
+						res.send({
+							"status" : "success",
+							"data" : item
+						});
+					} else {
+						res.send({
+							"status" : "failed",
+							"message" : "No data found"
+						});
+					}
+				} else {
+					res.send({
+						"status" : "failed",
+						"message" : "Somthing went wrong. Please try again."
+					});
+				}
+			});
+
+		}
+	});
+};
+
+exports.findByMicrCode_v1 = function(req, res, next) {
+	id = "0";
+	res.header("Access-Control-Allow-Origin", "*");
+	if (req.method === "GET") {
+		id = req.params.micrCode;
+	} else if (req.method === "POST") {
+		id = req.body.micrCode;
+	}
+	db.collection(collection, function(err, collection) {
+		if (!err) {
+			collection.findOne({
+				'MICR CODE' : id
+			}, function(err, item) {
+				if (!err) {
+					if (item) {
+						item.MICRCODE = item['MICR CODE']
+						res.send({
+							"status" : "success",
+							"data" : item
+						});
+					} else {
+						res.send({
+							"status" : "failed",
+							"message" : "No data found"
+						});
+					}
+				} else {
+					res.send({
+						"status" : "failed",
+						"message" : "Somthing went wrong. Please try again."
+					});
+				}
+			});
+
+		}
+	});
+};
