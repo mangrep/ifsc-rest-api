@@ -21,6 +21,9 @@
 
 Example:
  http://api.techm.co.in/api/listbanks
+ 
+ Request Type: GET
+ Response Type: JSON
 
 Sample response:
 
@@ -30,7 +33,9 @@ Sample response:
 ###Get bank by IFSC code.
 
 ####URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
-Request Type: GET
+
+ Request Type: GET
+ Response Type: JSON
 
 Example:
  http://api.techm.co.in/api/v1/ifsc/SBIN0000138
@@ -40,7 +45,9 @@ Sample response:
     
 ###Get bank by MICR code
 ####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
-Request Type: GET
+
+ Request Type: GET
+ Response Type: JSON
 
 Example: 
 http://api.techm.co.in/api/v1/micr/842002002
@@ -50,7 +57,9 @@ http://api.techm.co.in/api/v1/micr/842002002
 ###Get banks by bank name
 
 ####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
-Request Type: GET
+
+ Request Type: GET
+ Response Type: JSON
 
 Example:
 http://api.techm.co.in/api/bank/ABU%20DHABI%20COMMERCIAL%20BANK
@@ -83,7 +92,8 @@ Sample response:
 ####Get banks by branch location
 URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
 
-Request type: GET
+ Request Type: GET
+ Response Type: JSON
 
 Example:
 http://api.techm.co.in/api/branch/KASHMIR
@@ -106,7 +116,8 @@ http://api.techm.co.in/api/branch/KASHMIR
 
 ####URI : `http://api.techm.co.in/api/district/{district name}`
 
-Request Type: GET
+ Request Type: GET
+ Response Type: JSON
 
 Example:
 http://api.techm.co.in/api/district/mumbai
@@ -119,7 +130,8 @@ Sample Response:
 
 ####URI : `http://api.techm.co.in/api/state/{state name}`
 
-Request Type: GET
+ Request Type: GET
+ Response Type: JSON
 
 Example:
 http://api.techm.co.in/api/state/goa
