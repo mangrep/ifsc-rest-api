@@ -29,45 +29,23 @@ Sample response:
    
 ###Get bank by IFSC code.
 
-####URI : `http://api.techm.co.in/api/ifsc/{IFSC CODE}`
+####URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
 Request Type: GET
 
 Example:
- http://api.techm.co.in/api/ifsc/SBIN0000138
+ http://api.techm.co.in/api/v1/ifsc/SBIN0000138
 Sample response:
 
-    [{
-    	"_id": "56a4e61d277fdd0a3417ebbb",
-    	"STATE": "BIHAR",
-    	"BANK": "STATE BANK OF INDIA",
-    	"IFSC": "SBIN0000138",
-    	"MICR CODE": "842002002",
-    	"BRANCH": "MUZAFFARPUR",
-    	"CONTACT": "0",
-    	"ADDRESS": "MUZAFFARPUR, BIHAR, PIN 842001",
-    	"CITY": "MUZAFFARPUR",
-    	"DISTRICT": "MUZAFFARPUR"
-    }]
+    {"status":"success","data":{"_id":"56e022eed632a3912074f711","STATE":"ANDHRA PRADESH","BANK":"ANDHRA BANK","IFSC":"ANDB0001154","MICR CODE":"500011075","BRANCH":"SAROORNAGAR","CONTACT":"0","ADDRESS":"11-3-25&11-3-26 ABHITEJA HOMES, ROAD NO 11SRI VENKATESWARA COLONY, SAROOR NAGAR, HYD","CITY":"SAROORNAGAR","DISTRICT":"HYDERABAD URBAN","MICRCODE":"500011075"}}
     
 ###Get bank by MICR code
-####URI : `http://api.techm.co.in/api/micr/{MICR CODE}`
+####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
 Request Type: GET
 
 Example: 
-http://api.techm.co.in/api/micr/842002002
+http://api.techm.co.in/api/v1/micr/842002002
 
-    [{
-    	"_id": "56a4e61d277fdd0a3417ebbb",
-    	"STATE": "BIHAR",
-    	"BANK": "STATE BANK OF INDIA",
-    	"IFSC": "SBIN0000138",
-    	"MICR CODE": "842002002",
-    	"BRANCH": "MUZAFFARPUR",
-    	"CONTACT": "0",
-    	"ADDRESS": "MUZAFFARPUR, BIHAR, PIN 842001",
-    	"CITY": "MUZAFFARPUR",
-    	"DISTRICT": "MUZAFFARPUR"
-    }]
+    {"status":"success","data":{"_id":"56e022f6d632a39120763650","STATE":"BIHAR","BANK":"STATE BANK OF INDIA","IFSC":"SBIN0000138","MICR CODE":"842002002","BRANCH":"MUZAFFARPUR","CONTACT":"0","ADDRESS":"MUZAFFARPUR, BIHAR, PIN 842001","CITY":"MUZAFFARPUR","DISTRICT":"MUZAFFARPUR","MICRCODE":"842002002"}}
 
 ###Get banks by bank name
 
