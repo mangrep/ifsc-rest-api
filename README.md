@@ -24,6 +24,7 @@ Example:
  http://api.techm.co.in/api/listbanks
  
  Request Type: GET
+ 
  Response Type: JSON
 
 Sample success response:
@@ -43,6 +44,7 @@ Example:
  http://api.techm.co.in/api/listbranches/Yes%20bank
  
  Request Type: GET
+ 
  Response Type: JSON
 
 Sample success response:
@@ -62,6 +64,7 @@ Note: Use bank name you get from  **listbanks** api.
 ####URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example:
@@ -78,6 +81,7 @@ Sample failure response:
 ####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example: 
@@ -96,6 +100,7 @@ Sample failure response:
 ####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example:
@@ -130,6 +135,7 @@ Sample response:
 URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example:
@@ -154,6 +160,7 @@ http://api.techm.co.in/api/branch/KASHMIR
 ####URI : `http://api.techm.co.in/api/district/{district name}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example:
@@ -172,6 +179,7 @@ Sample failure response:
 ####URI : `http://api.techm.co.in/api/state/{state name}`
 
  Request Type: GET
+ 
  Response Type: JSON
 
 Example:
