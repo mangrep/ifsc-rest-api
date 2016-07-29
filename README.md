@@ -4,12 +4,13 @@
 ###Features provided 
 
  1. Get supported bank list
- 2. Get bank by IFSC code.
- 3. Get bank by MICR code.
- 4. Get banks by bank name.
- 5. Get banks by branch location.
- 6. Get banks by district
- 7. Get banks by state
+ 2. Get branch list by bank name
+ 3. Get bank by IFSC code.
+ 4. Get bank by MICR code.
+ 5. Get banks by bank name.
+ 6. Get banks by branch location.
+ 7. Get banks by district
+ 8. Get banks by state
 
 
 ##API Documentation
@@ -25,11 +26,37 @@ Example:
  Request Type: GET
  Response Type: JSON
 
-Sample response:
+Sample success response:
 
        {"status": "success", "data":["ABU DHABI COMMERCIAL BANK","ABHYUDAYA COOPERATIVE BANK LIMITED", .............]}
 
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
+
+
+### Get branch list by bank name
+
+####URI : `http://api.techm.co.in/api/listbranches/{bank name}`
+
+Example:
+ http://api.techm.co.in/api/listbranches/Yes%20bank
+ 
+ Request Type: GET
+ Response Type: JSON
+
+Sample success response:
+
+      {"status":"success","data":["ABIDS, HYDERABAD","ABU ROAD, ....]}
+
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
    
+
+Note: Use bank name you get from  **listbanks** api.
+
+
 ###Get bank by IFSC code.
 
 ####URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
@@ -39,9 +66,13 @@ Sample response:
 
 Example:
  http://api.techm.co.in/api/v1/ifsc/SBIN0000138
-Sample response:
+Sample success response:
 
     {"status":"success","data":{"_id":"56e022eed632a3912074f711","STATE":"ANDHRA PRADESH","BANK":"ANDHRA BANK","IFSC":"ANDB0001154","MICR CODE":"500011075","BRANCH":"SAROORNAGAR","CONTACT":"0","ADDRESS":"11-3-25&11-3-26 ABHITEJA HOMES, ROAD NO 11SRI VENKATESWARA COLONY, SAROOR NAGAR, HYD","CITY":"SAROORNAGAR","DISTRICT":"HYDERABAD URBAN","MICRCODE":"500011075"}}
+
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
     
 ###Get bank by MICR code
 ####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
@@ -52,8 +83,14 @@ Sample response:
 Example: 
 http://api.techm.co.in/api/v1/micr/842002002
 
+Sample success response:
+
     {"status":"success","data":{"_id":"56e022f6d632a39120763650","STATE":"BIHAR","BANK":"STATE BANK OF INDIA","IFSC":"SBIN0000138","MICR CODE":"842002002","BRANCH":"MUZAFFARPUR","CONTACT":"0","ADDRESS":"MUZAFFARPUR, BIHAR, PIN 842001","CITY":"MUZAFFARPUR","DISTRICT":"MUZAFFARPUR","MICRCODE":"842002002"}}
 
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
+    
 ###Get banks by bank name
 
 ####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
@@ -122,9 +159,13 @@ http://api.techm.co.in/api/branch/KASHMIR
 Example:
 http://api.techm.co.in/api/district/mumbai
 
-Sample Response:
+Sample success response:
 
     {"status":"success","data":[{"_id":"56e022edd632a3912074e793","STATE":"GOA","BANK":"ALLAHABAD BANK","IFSC":"ALLA0210994","MICR CODE":"403010003","BRANCH":"MAPUCA","CONTACT":"2262801","ADDRESS":"HOTEL SATYA HEERA BUILDING, NEAR HANUMAN TEMPLE, MAPUSA, NORTHGOA 403507","CITY":"MAPUSA","DISTRICT":"NORTH GOA"}]}
+
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
 
 ###Get bank list by state name
 
@@ -138,11 +179,14 @@ http://api.techm.co.in/api/state/goa
 
 http://api.techm.co.in/api/state/Uttar%20pradesh
 
-Sample Response:
+Sample success response:
 
     {"status":"success","data":[{"_id":"56e022edd632a3912074e793","STATE":"GOA","BANK":"ALLAHABAD BANK","IFSC":"ALLA0210994","MICR CODE":"403010003","BRANCH":"MAPUCA","CONTACT":"2262801","ADDRESS":"HOTEL SATYA HEERA BUILDING, NEAR HANUMAN TEMPLE, MAPUSA, NORTHGOA 403507","CITY":"MAPUSA","DISTRICT":"NORTH GOA"}]}
+    
 
+Sample failure response:
 
+    {"status": "failed", "message": "Failure cause"}
 
 
 ###We provide details of following banks:
