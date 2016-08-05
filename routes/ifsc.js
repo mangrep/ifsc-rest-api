@@ -325,14 +325,14 @@ exports.findByIfscCode_v1 = function(req, res, next) {
 						});
 					} else {
 						res.send({
-							"status" : "failed",
-							"message" : "No data found"
+							"status" : "failure",
+							"message" : "Not Found! The code you have entered is incorrect, try again"
 						});
 					}
 				} else {
 					res.send({
-						"status" : "failed",
-						"message" : "Somthing went wrong. Please try again."
+						"status" : "failure",
+						"message" : "Not Found! The code you have entered is incorrect, try again"
 					});
 				}
 			});
@@ -363,14 +363,14 @@ exports.findByMicrCode_v1 = function(req, res, next) {
 						});
 					} else {
 						res.send({
-							"status" : "failed",
-							"message" : "No data found"
+							"status" : "failure",
+							"message" : "Not Found! The code you have entered is incorrect, try again"
 						});
 					}
 				} else {
 					res.send({
-						"status" : "failed",
-						"message" : "Somthing went wrong. Please try again."
+						"status" : "failure",
+						"message" : "Not Found! The code you have entered is incorrect, try again"
 					});
 				}
 			});
