@@ -29,6 +29,7 @@ exports.findByIfscCode = function(req, res, next) {
 	} else if (req.method === "POST") {
 		id = req.body.ifscCode;
 	}
+    id = id.toUpperCase();
 	db.collection(collection, function(err, collection) {
 		if (!err) {
 			collection.find({
@@ -311,6 +312,7 @@ exports.findByIfscCode_v1 = function(req, res, next) {
 	} else if (req.method === "POST") {
 		id = req.body.ifscCode;
 	}
+    id = id.toUpperCase();
 	db.collection(collection, function(err, collection) {
 		if (!err) {
 			collection.findOne({
