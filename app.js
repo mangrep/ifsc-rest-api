@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var morgan = require('morgan')
 var routes = require('./routes/routes');
+var RateLimit = require('express-rate-limit');
 
 var app = express();
 
@@ -13,7 +14,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
+//limit request count per day to 100
+var limiter = new RateLimit({
+  windowMs: 24*60*60*1000,  // 24 hrs
+  max: 100,  // limit each IP to 100 requests per windowMs 
+  delayMs: 0,  // disable delaying - full speed until the max limit is reached 
+  message: "Daily request limit exceeded."
+});
+
+//  apply to all requests 
+app.use(limiter);
+
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

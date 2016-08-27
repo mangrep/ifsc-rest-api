@@ -13,9 +13,9 @@
     "homedir": "^0.6.0",
     "jade": "~1.11.0",
     "mongodb": "^2.1.4",
-    "morgan": "~1.6.1",
+    "morgan": "1.7.0",
     "serve-favicon": "~2.3.0",
     "xls-to-json": "^0.3.2",
-    "morgan": "1.7.0"
+    "express-rate-limit": "~2.4.0"
   }
 }
