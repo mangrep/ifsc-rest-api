@@ -1,5 +1,5 @@
 # Rest API to get details of  NEFT enabled bank Branches (Bank-wise IFS Codes).
-> Note: All details are taken from  [RBI website](https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009) last update Jan 22, 2016.
+> Note: All details are taken from  [RBI website](https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009) last update 24 August, 2016.
 
 ###Features provided 
 
