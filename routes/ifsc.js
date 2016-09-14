@@ -3,7 +3,7 @@ var mongoServer = mongo.Server, mongoDb = mongo.Db, BSON = mongo.BSONPure;
 var id = "0";
 var dbName = 'ifsc';
 var hostName = 'localhost';
-var collection = 'ifsc_dtl';
+var collection = 'ifsc_dtl_v1';
 var server = new mongoServer(hostName, 27017, {
 	auto_reconnect : true
 });

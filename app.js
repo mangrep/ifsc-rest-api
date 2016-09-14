@@ -17,7 +17,7 @@ app.set('view engine', 'jade');
 //limit request count per day to 100
 var limiter = new RateLimit({
   windowMs: 24*60*60*1000,  // 24 hrs
-  max: 100,  // limit each IP to 100 requests per windowMs 
+  max: 200,  // limit each IP to 200 requests per windowMs 
   delayMs: 0,  // disable delaying - full speed until the max limit is reached 
   message: "Daily request limit exceeded."
 });
