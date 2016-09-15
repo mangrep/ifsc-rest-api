@@ -60,29 +60,6 @@ Sample failure response:
 
 Note: Use bank name you get from  **listbanks** api.
 
-###Get branch details by Bank Name and Branch Name
-
-####URI : `http://api.techm.co.in/api/getbank/{bank name}/{branch name}`
-
-Note: You must use bank name and branch name provided in response of listbanks and listbranches api respectively.
-
-
-Example:
-https://api.techm.co.in/api/getbank/YES%20BANK/ASSOCIATE%20COOP%20BANK%20UMARWADA
- 
- Request Type: GET
- 
- Response Type: JSON
-
-Sample success response:
-
-      {"status":"success","data":{"_id":"57cad025eae65540465785c7","STATE":"GUJARAT","BANK":"YES BANK","IFSC":"YESB0ASCB03","MICR CODE":"NA","BRANCH":"ASSOCIATE COOP BANK UMARWADA","ADDRESS":"UG-20 TO 23, SAI DARSHAN MARKET UMARWADA SURAT -395002","CONTACT":"3000498","CITY":"SURAT","DISTRICT":"SURAT","MICRCODE":"NA"}}
-
-Sample failure response:
-
-    {"status": "failed", "message": "Failure cause"}
-   
-
 
 ###Get bank by IFSC code.
 
@@ -103,7 +80,6 @@ Sample failure response:
     {"status": "failed", "message": "Failure cause"}
     
 ###Get bank by MICR code
-
 ####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
 
  Request Type: GET
