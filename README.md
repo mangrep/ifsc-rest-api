@@ -7,12 +7,12 @@
 
  1. Get supported bank list
  2. Get branch list by bank name
- 3. Get bank by IFSC code.
- 4. Get bank by MICR code.
- 5. Get banks by bank name.
- 6. Get banks by branch location.
- 7. Get banks by district
- 8. Get banks by state
+ 3. Search bank details by IFSC code.
+ 4. Search bank details by MICR code.
+ 6. Search bank details by branch name ( partial name )  and bank name
+ 7. Search banks details by branch location.
+ 8. Search banks details by district
+ 9. Search banks details by state
 
 
 ##API Documentation
@@ -120,42 +120,51 @@ Sample success response:
 Sample failure response:
 
     {"status": "failed", "message": "Failure cause"}
-    
-###Get banks by bank name
 
-####URI : `http://api.techm.co.in/api/bank/{Bank NAME}`
 
- Request Type: GET
+###Search bank details by branch name ( partial name )  and bank name
+####URI : `https://api.techm.co.in/bank/search/likeBranchName/`
+
+ Request Type: POST
  
- Response Type: JSON
+ Response Type: application/json or application/xml
 
-Example:
-http://api.techm.co.in/api/bank/ABU%20DHABI%20COMMERCIAL%20BANK
-Sample response:
+Example: 
+https://api.techm.co.in/bank/search/likeBranchName
 
-    [{
-    	"_id": "56a4e606277fdd0a341698cb",
-    	"STATE": "MAHARASHTRA",
-    	"BANK": "ABU DHABI COMMERCIAL BANK",
-    	"IFSC": "ADCB0000001",
-    	"MICR CODE": "400269002",
-    	"BRANCH": "RTGS-HO",
-    	"CONTACT": "39534100",
-    	"ADDRESS": "75, REHMAT MANZIL, V. N. ROAD, CURCHGATE, MUMBAI - 400020",
-    	"CITY": "MUMBAI",
-    	"DISTRICT": "MUMBAI CITY"
-    }, {
-    	"_id": "56a4e606277fdd0a341698cc",
-    	"STATE": "KARNATAKA",
-    	"BANK": "ABU DHABI COMMERCIAL BANK",
-    	"IFSC": "ADCB0000002",
-    	"MICR CODE": "560269002",
-    	"BRANCH": "BANGALORE",
-    	"CONTACT": "25582000",
-    	"ADDRESS": "CITI CENTRE, 28, CHURCH STREET, OFF M. G. ROAD BANGALORE 560001",
-    	"CITY": "BANGALORE",
-    	"DISTRICT": "BANGALORE URBAN"
-    }]
+Request body: 
+
+    {
+       "bankName":"ANDHRA BANK", 
+       "branchName":"GHANT", 
+	   "source":"xyz.com"  
+     }
+
+   
+Parameters:
+
+     bankName: Name of bank (Mandatory)
+     
+     branchName: Name of bank (Mandatory)
+     
+     source: your website/app store link 
+
+    
+Request Headers:
+
+Accept: application/json or  application/xml
+
+Content-Type: application/json
+
+Sample success response:
+
+    {"status":"success","message":null,"data":{"bankName":"ANDHRA BANK","branchNameLike":null,"bankList":[{"IFSC":"ANDB0000143","MICRCODE":"520011663","BANK":"ANDHRA BANK","BRANCH":"GHANTASALA","ADDRESS":"MAIN ROAD,GHANTASALA,KRISHNA DIST,AP","CONTACT":"0","CITY":"GHANTASALA","DISTRICT":"KRISHNA","STATE":"ANDHRA PRADESH"}]}}
+
+Sample failure response:
+
+    {"status": "failed", "message": "Failure cause"}
+    
+   
     
 ####Get banks by branch location
 URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
