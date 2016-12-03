@@ -5,7 +5,6 @@ var router = express.Router();
 /* GET home page. */
 router.get('/api/ifsc/:ifscCode', ifsc.findByIfscCode);
 router.get('/api/micr/:micrCode', ifsc.findByMicrCode);
-router.get('/api/bank/:bankname', ifsc.listByBankName);
 router.get('/api/branch/:branch', ifsc.findByBranch);
 router.get('/api/listbanks', ifsc.listBanks);
 router.get('/api/listbranches/:bankname', ifsc.listbranches);
