@@ -1,9 +1,9 @@
-###Your support will help us ensure continuous quality services. <a href="https://app.quikwallet.com/#partner/243/100" target="_blank">Donate Now</a> 
+### Your support will help us ensure continuous quality services. <a href="https://app.quikwallet.com/#partner/243/100" target="_blank">Donate Now</a> 
 
 # Rest API to get details of  NEFT enabled bank Branches (Bank-wise IFS Codes).
 > Note: All details are taken from  [RBI website](https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009) last update 24 August, 2016.
 
-###Features provided 
+### Features provided 
 
  1. Get supported bank list
  2. Get branch list by bank name
@@ -15,12 +15,12 @@
  9. Search banks details by state
 
 
-##API Documentation
+## API Documentation
 
 
 ### Get supported bank list
 
-####URI : `http://api.techm.co.in/api/listbanks`
+#### URI : `http://api.techm.co.in/api/listbanks`
 
 Example:
  http://api.techm.co.in/api/listbanks
@@ -40,7 +40,7 @@ Sample failure response:
 
 ### Get branch list by bank name
 
-####URI : `http://api.techm.co.in/api/listbranches/{bank name}`
+#### URI : `http://api.techm.co.in/api/listbranches/{bank name}`
 
 Example:
  http://api.techm.co.in/api/listbranches/Yes%20bank
@@ -60,9 +60,9 @@ Sample failure response:
 
 Note: Use bank name you get from  **listbanks** api.
 
-###Get branch details by Bank Name and Branch Name
+### Get branch details by Bank Name and Branch Name
 
-####URI : `http://api.techm.co.in/api/getbank/{bank name}/{branch name}`
+#### URI : `http://api.techm.co.in/api/getbank/{bank name}/{branch name}`
 
 Note: You must use bank name and branch name provided in response of listbanks and listbranches api respectively.
 
@@ -84,9 +84,9 @@ Sample failure response:
    
 
 
-###Get bank by IFSC code.
+### Get bank by IFSC code.
 
-####URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
+#### URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
 
  Request Type: GET
  
@@ -102,9 +102,9 @@ Sample failure response:
 
     {"status": "failed", "message": "Failure cause"}
     
-###Get bank by MICR code
+### Get bank by MICR code
 
-####URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
+#### URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
 
  Request Type: GET
  
@@ -122,8 +122,9 @@ Sample failure response:
     {"status": "failed", "message": "Failure cause"}
 
 
-###Search bank details by branch name ( partial name )  and bank name
-####URI : `https://api.techm.co.in/bank/search/likeBranchName/`
+### Search bank details by branch name ( partial name )  and bank name
+
+#### URI : `https://api.techm.co.in/bank/search/likeBranchName/`
 
  Request Type: POST
  
@@ -166,7 +167,7 @@ Sample failure response:
     
    
     
-####Get banks by branch location
+#### Get banks by branch location
 URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
 
  Request Type: GET
@@ -190,9 +191,9 @@ http://api.techm.co.in/api/branch/KASHMIR
     	"STATE": "HIMACHAL PRADESH"
     }]
 
-###Get bank list by district name
+### Get bank list by district name
 
-####URI : `http://api.techm.co.in/api/district/{district name}`
+#### URI : `http://api.techm.co.in/api/district/{district name}`
 
  Request Type: GET
  
@@ -209,9 +210,9 @@ Sample failure response:
 
     {"status": "failed", "message": "Failure cause"}
 
-###Get bank list by state name
+### Get bank list by state name
 
-####URI : `http://api.techm.co.in/api/state/{state name}`
+#### URI : `http://api.techm.co.in/api/state/{state name}`
 
  Request Type: GET
  
@@ -232,7 +233,7 @@ Sample failure response:
     {"status": "failed", "message": "Failure cause"}
 
 
-###We provide details of following banks:
+### We provide details of following banks:
 
 1. ABHYUDAYA COOPERATIVE BANK LIMITED
 2. ABU DHABI COMMERCIAL BANK
