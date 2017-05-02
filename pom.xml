@@ -61,15 +61,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		 <resources>
-            <resource>
-                <directory>resources</directory>
-                <targetPath>${project.build.outputDirectory}</targetPath>
-                <includes>
-                    <include>application.properties</include>
-                </includes>
-            </resource>
-        </resources>
+	
 	</build>
 
 	<repositories>
