@@ -3,7 +3,8 @@ package in.co.techm.model;
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
-
+import org.springframework.data.mongodb.core.mapping.Document;
+@Document
 public class Bank implements Serializable {
 	@Id
 	private String _id;

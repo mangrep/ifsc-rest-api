@@ -10,4 +10,5 @@ import in.co.techm.model.Bank;
 @RepositoryRestResource
 public interface BankRepository extends MongoRepository<Bank, Serializable> {
 
+	Bank findByBRANCH(String branch);
 }
