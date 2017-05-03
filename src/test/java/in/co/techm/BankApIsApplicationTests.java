@@ -19,4 +19,8 @@ public class BankApIsApplicationTests {
 		System.out.println("size is" + mBankRepository.findAll().size());
 	}
 
+	@Test
+	public void getByBankBranch() {
+		System.out.println("Result is" + mBankRepository.findByBranchAndBank("STATE BANK OF INDIA", "MUZAFFARPUR"));
+	}
 }
