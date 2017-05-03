@@ -19,11 +19,7 @@ public class RestContoller {
 
 	@RequestMapping("/")
 	@ResponseBody
-	String home() {
-		Bank bank = mBankRepository.findByBranchAndBank("MUZAFFARPUR", "STATE BANK OF INDIA");
-		if (bank != null) {
-			return bank.toString();
-		}
-		return "Not found";
+	Bank home() {
+		return mBankRepository.findByBranchAndBank("MUZAFFARPUR", "STATE BANK OF INDIA");
 	}
 }
