@@ -2,12 +2,15 @@ package in.co.techm.model;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document(collection = "ifsc_dtl")
+@XmlRootElement(name="bank")
 public class Bank implements Serializable {
 	@Id
 	private String _id;
