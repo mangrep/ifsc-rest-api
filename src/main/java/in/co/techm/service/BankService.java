@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 
+import in.co.techm.model.LikeBranchSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -87,6 +88,20 @@ public class BankService {
         Optional<Bank> bank = mBankRepository.findByMicrcode(micrcode);
         if( bank.isPresent()){
             response.setData(bank.get());
+            response.setStatus("success");
+        }else{
+            response.setStatus("failed");
+            response.setMessage("No bank found");
+            System.out.println("failed");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<GenericResponse<List<Bank>>> likeBranchNameSearch(LikeBranchSearch likeBranchSearch) {
+        GenericResponse<List<Bank>> response = new GenericResponse<>();
+        Optional<List<Bank>> bankList = mBankRepository.findByBankIgnoreCaseAndBranch(likeBranchSearch.getBankName(),likeBranchSearch.getBranchName());
+        if( bankList.get().size() > 0){
+            response.setData(bankList.get());
             response.setStatus("success");
         }else{
             response.setStatus("failed");

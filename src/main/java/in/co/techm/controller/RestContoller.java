@@ -1,12 +1,9 @@
 package in.co.techm.controller;
 
+import in.co.techm.model.LikeBranchSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import in.co.techm.model.Bank;
 import in.co.techm.model.GenericResponse;
@@ -52,5 +49,11 @@ public class RestContoller {
     @ResponseBody
     ResponseEntity<GenericResponse<Bank>> findByMicrcode(@PathVariable(value = "micrcode") String micrcode) {
         return mBankService.findByMicrcode(micrcode);
+    }
+
+    @RequestMapping(value = "/bank/search/likeBranchName", method = RequestMethod.POST)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<Bank>>> likeBranchNameSearch(@RequestBody LikeBranchSearch likeBranchSearch) {
+        return mBankService.likeBranchNameSearch(likeBranchSearch);
     }
 }
