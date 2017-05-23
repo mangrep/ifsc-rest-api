@@ -25,8 +25,7 @@ public class RestContoller {
 			@PathVariable(value = "branchName") String branchName) {
 		return mBankService.findByBranchAndBank(bankName, branchName);
 	}
-
-
+    
     @RequestMapping(value = "/listbanks", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Set<String>>> listAllBankName() {
@@ -38,6 +37,12 @@ public class RestContoller {
 	ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
 		return mBankService.listBranchesByBankName(bankName);
 	}
+
+    @RequestMapping(value = "/branch/{branch}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<Bank>>> branchesByBranchName(@PathVariable(value = "branch") String branchName) {
+        return mBankService.findByBranch(branchName);
+    }
 
     @RequestMapping(value = "/v1/ifsc/{ifsc}", method = RequestMethod.GET)
     @ResponseBody
@@ -56,4 +61,5 @@ public class RestContoller {
     ResponseEntity<GenericResponse<List<Bank>>> likeBranchNameSearch(@RequestBody LikeBranchSearch likeBranchSearch) {
         return mBankService.likeBranchNameSearch(likeBranchSearch);
     }
+
 }

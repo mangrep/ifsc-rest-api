@@ -19,6 +19,8 @@ public interface BankRepository extends MongoRepository<Bank, Serializable> {
 
 	Optional<List<Bank>> findByBankIgnoreCase(String bank);
 
+    Optional<List<Bank>> findByBranchIgnoreCase(String branch);
+
 	Optional<Bank> findByIfsc(String ifsc);
 
 	Optional<Bank> findByMicrcode(String micrcode);
