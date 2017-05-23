@@ -53,5 +53,18 @@ public class BankService {
 		}
         return new ResponseEntity<GenericResponse<Set<String>>>(response, HttpStatus.OK);
 	}
-	
+
+    public ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(String bankName) {
+        GenericResponse<List<Bank>> response = new GenericResponse<>();
+        Optional<List<Bank>> bankList = mBankRepository.findByBank(bankName);
+        if( bankList.get().size() > 0){
+            response.setData(bankList.get());
+            response.setStatus("success");
+        }else{
+            response.setStatus("failed");
+            response.setMessage("No bank found");
+            System.out.println("failed");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

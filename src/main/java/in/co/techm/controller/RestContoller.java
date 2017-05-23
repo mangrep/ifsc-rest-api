@@ -13,6 +13,7 @@ import in.co.techm.model.GenericResponse;
 import in.co.techm.repository.BankRepository;
 import in.co.techm.service.BankService;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -34,4 +35,10 @@ public class RestContoller {
     ResponseEntity<GenericResponse<Set<String>>> listAllBankName() {
         return mBankService.listAllBankName();
     }
+
+	@RequestMapping(value = "/listbranches/{bankName}", method = RequestMethod.GET)
+	@ResponseBody
+	ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
+		return mBankService.listBranchesByBankName(bankName);
+	}
 }
