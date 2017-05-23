@@ -9,10 +9,13 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import in.co.techm.model.Bank;
 
+import javax.swing.text.html.Option;
+
 @RepositoryRestResource
 public interface BankRepository extends MongoRepository<Bank, Serializable> {
 	Bank findByBranchAndBank(String branch, String bank);
 	Optional<List<Bank>> findByBank(String bank);
+	Optional<Bank> findByIfsc(String ifsc);
 
 }
 

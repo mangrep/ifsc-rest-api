@@ -41,4 +41,10 @@ public class RestContoller {
 	ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
 		return mBankService.listBranchesByBankName(bankName);
 	}
+
+    @RequestMapping(value = "/v1/ifsc/{ifsc}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<Bank>> findByIfsc(@PathVariable(value = "ifsc") String ifsc) {
+        return mBankService.findByIfsc(ifsc);
+    }
 }

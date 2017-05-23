@@ -67,4 +67,18 @@ public class BankService {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    public ResponseEntity<GenericResponse<Bank>> findByIfsc(String ifsc) {
+        GenericResponse<Bank> response = new GenericResponse<>();
+        Optional<Bank> bank = mBankRepository.findByIfsc(ifsc);
+        if( bank.isPresent()){
+            response.setData(bank.get());
+            response.setStatus("success");
+        }else{
+            response.setStatus("failed");
+            response.setMessage("No bank found");
+            System.out.println("failed");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
