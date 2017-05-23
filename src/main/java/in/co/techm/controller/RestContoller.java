@@ -13,6 +13,8 @@ import in.co.techm.model.GenericResponse;
 import in.co.techm.repository.BankRepository;
 import in.co.techm.service.BankService;
 
+import java.util.Set;
+
 @RestController
 public class RestContoller {
 
@@ -26,4 +28,10 @@ public class RestContoller {
 		return mBankService.findByBranchAndBank(bankName, branchName);
 	}
 
+
+    @RequestMapping(value = "/listbanks", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<Set<String>>> listAllBankName() {
+        return mBankService.listAllBankName();
+    }
 }
