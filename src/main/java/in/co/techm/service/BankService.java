@@ -124,4 +124,32 @@ public class BankService {
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    public ResponseEntity<GenericResponse<List<Bank>>> findByDistrict(String district) {
+        GenericResponse<List<Bank>> response = new GenericResponse<>();
+        Optional<List<Bank>> bankList = mBankRepository.findByDistrictIgnoreCase(district);
+        if( bankList.get().size() > 0){
+            response.setData(bankList.get());
+            response.setStatus("success");
+        }else{
+            response.setStatus("failed");
+            response.setMessage("No bank found");
+            System.out.println("failed");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
+    public ResponseEntity<GenericResponse<List<Bank>>> findByState(String state) {
+        GenericResponse<List<Bank>> response = new GenericResponse<>();
+        Optional<List<Bank>> bankList = mBankRepository.findByStateIgnoreCase(state);
+        if( bankList.get().size() > 0){
+            response.setData(bankList.get());
+            response.setStatus("success");
+        }else{
+            response.setStatus("failed");
+            response.setMessage("No bank found");
+            System.out.println("failed");
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }

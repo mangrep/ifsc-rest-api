@@ -25,7 +25,7 @@ public class RestContoller {
 			@PathVariable(value = "branchName") String branchName) {
 		return mBankService.findByBranchAndBank(bankName, branchName);
 	}
-    
+
     @RequestMapping(value = "/listbanks", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Set<String>>> listAllBankName() {
@@ -62,4 +62,15 @@ public class RestContoller {
         return mBankService.likeBranchNameSearch(likeBranchSearch);
     }
 
+    @RequestMapping(value = "/district/{district}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<Bank>>> findByDistrict(@PathVariable(value = "district") String district) {
+        return mBankService.findByDistrict(district);
+    }
+
+    @RequestMapping(value = "/state/{state}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<Bank>>> findByState(@PathVariable(value = "state") String state) {
+        return mBankService.findByState(state);
+    }
 }

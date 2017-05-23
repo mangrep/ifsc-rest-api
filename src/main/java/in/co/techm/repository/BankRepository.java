@@ -25,6 +25,10 @@ public interface BankRepository extends MongoRepository<Bank, Serializable> {
 
 	Optional<Bank> findByMicrcode(String micrcode);
 
+	Optional<List<Bank>> findByDistrictIgnoreCase(String district);
+
+	Optional<List<Bank>> findByStateIgnoreCase(String district);
+
 	@Query("{ 'branch':{$regex:?1,$options:'i'}, 'bank':{$regex:?0, $options: 'i'}}")
 	Optional<List<Bank>> findByBankIgnoreCaseAndBranch(String bank, String branch);
 }
