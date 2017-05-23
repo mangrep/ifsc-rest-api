@@ -16,6 +16,7 @@ public interface BankRepository extends MongoRepository<Bank, Serializable> {
 	Bank findByBranchAndBank(String branch, String bank);
 	Optional<List<Bank>> findByBank(String bank);
 	Optional<Bank> findByIfsc(String ifsc);
+	Optional<Bank> findByMicrcode(String micrcode);
 
 }
 

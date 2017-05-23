@@ -47,4 +47,10 @@ public class RestContoller {
     ResponseEntity<GenericResponse<Bank>> findByIfsc(@PathVariable(value = "ifsc") String ifsc) {
         return mBankService.findByIfsc(ifsc);
     }
+
+    @RequestMapping(value = "/v1/micr/{micrcode}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<Bank>> findByMicrcode(@PathVariable(value = "micrcode") String micrcode) {
+        return mBankService.findByMicrcode(micrcode);
+    }
 }
