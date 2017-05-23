@@ -23,7 +23,7 @@ public class BankService {
 	
 	public ResponseEntity<GenericResponse<Bank>> findByBranchAndBank(String bankName, String branchName) {
 		GenericResponse<Bank> response = new GenericResponse<>();
-		Bank bank = mBankRepository.findByBranchAndBank(branchName, bankName);
+		Bank bank = mBankRepository.findByBranchIgnoreCaseAndBankIgnoreCase(branchName, bankName);
 		if(Optional.ofNullable(bank).isPresent()){
 			response.setData(bank);
 			response.setStatus("success");
@@ -56,7 +56,7 @@ public class BankService {
 
     public ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(String bankName) {
         GenericResponse<List<Bank>> response = new GenericResponse<>();
-        Optional<List<Bank>> bankList = mBankRepository.findByBank(bankName);
+        Optional<List<Bank>> bankList = mBankRepository.findByBankIgnoreCase(bankName);
         if( bankList.get().size() > 0){
             response.setData(bankList.get());
             response.setStatus("success");

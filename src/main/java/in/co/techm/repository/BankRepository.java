@@ -13,9 +13,13 @@ import javax.swing.text.html.Option;
 
 @RepositoryRestResource
 public interface BankRepository extends MongoRepository<Bank, Serializable> {
-	Bank findByBranchAndBank(String branch, String bank);
-	Optional<List<Bank>> findByBank(String bank);
+
+	Bank findByBranchIgnoreCaseAndBankIgnoreCase(String branch, String bank);
+
+	Optional<List<Bank>> findByBankIgnoreCase(String bank);
+
 	Optional<Bank> findByIfsc(String ifsc);
+
 	Optional<Bank> findByMicrcode(String micrcode);
 
 }
