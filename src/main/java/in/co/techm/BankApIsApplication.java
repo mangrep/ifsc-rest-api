@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class BankApIsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BankApIsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BankApIsApplication.class, args);
+    }
 }

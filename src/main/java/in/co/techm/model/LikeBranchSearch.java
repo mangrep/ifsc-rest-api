@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by livquik on 23/05/17.
  */
-public class LikeBranchSearch implements Serializable{
+public class LikeBranchSearch implements Serializable {
     private String bankName;
     private String branchName;
     private String source;

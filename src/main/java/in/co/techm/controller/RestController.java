@@ -1,14 +1,12 @@
 package in.co.techm.controller;
 
+import in.co.techm.model.Bank;
+import in.co.techm.model.GenericResponse;
 import in.co.techm.model.LikeBranchSearch;
+import in.co.techm.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import in.co.techm.model.Bank;
-import in.co.techm.model.GenericResponse;
-import in.co.techm.repository.BankRepository;
-import in.co.techm.service.BankService;
 
 import java.util.List;
 import java.util.Set;
@@ -16,15 +14,15 @@ import java.util.Set;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-	@Autowired
-	BankService mBankService;
+    @Autowired
+    BankService mBankService;
 
-	@RequestMapping(value = "/api/getbank/{bankName}/{branchName}", method = RequestMethod.GET)
-	@ResponseBody
-	ResponseEntity<GenericResponse<Bank>> getBank(@PathVariable(value = "bankName") String bankName,
-			@PathVariable(value = "branchName") String branchName) {
-		return mBankService.findByBranchAndBank(bankName, branchName);
-	}
+    @RequestMapping(value = "/api/getbank/{bankName}/{branchName}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<Bank>> getBank(@PathVariable(value = "bankName") String bankName,
+                                                  @PathVariable(value = "branchName") String branchName) {
+        return mBankService.findByBranchAndBank(bankName, branchName);
+    }
 
     //TODO: Similar to like search. Might be not useful
     @RequestMapping(value = "/api/getbank", method = RequestMethod.POST)
@@ -39,11 +37,11 @@ public class RestController {
         return mBankService.listAllBankName();
     }
 
-	@RequestMapping(value = "/api/listbranches/{bankName}", method = RequestMethod.GET)
-	@ResponseBody
-	ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
-		return mBankService.listBranchesByBankName(bankName);
-	}
+    @RequestMapping(value = "/api/listbranches/{bankName}", method = RequestMethod.GET)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
+        return mBankService.listBranchesByBankName(bankName);
+    }
 
     @RequestMapping(value = "/api/branch/{branch}", method = RequestMethod.GET)
     @ResponseBody
