@@ -21,6 +21,6 @@ public class BankApIsApplicationTests {
 
 	@Test
 	public void getByBankBranch() {
-		System.out.println("Result is" + mBankRepository.findByBranchAndBank("STATE BANK OF INDIA", "MUZAFFARPUR"));
+		System.out.println("Result is" + mBankRepository.findByBranchIgnoreCaseAndBankIgnoreCase("STATE BANK OF INDIA", "MUZAFFARPUR"));
 	}
 }
