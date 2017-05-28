@@ -5,7 +5,7 @@
 
 	<groupId>in.co.techm</groupId>
 	<artifactId>bankAPIs</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>v0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>bankAPIs</name>
