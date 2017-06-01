@@ -1,6 +1,7 @@
 package in.co.techm.service;
 
 import in.co.techm.model.Bank;
+import in.co.techm.model.Banks;
 import in.co.techm.model.GenericResponse;
 import in.co.techm.model.LikeBranchSearch;
 import in.co.techm.repository.BankRepository;
@@ -51,28 +52,34 @@ public class BankService {
             response.setMessage("Something went wrong please try again");
             System.out.println("failed");
         }
-        return new ResponseEntity<GenericResponse<Set<String>>>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(String bankName) {
-        GenericResponse<List<Bank>> response = new GenericResponse<>();
+    public ResponseEntity<GenericResponse<Set<String>>> listBranchesByBankName(String bankName) {
+        GenericResponse<Set<String>> response = new GenericResponse<>();
+        Optional<Set<String>> branchNameList = Optional.of(new TreeSet<>());
         Optional<List<Bank>> bankList = mBankRepository.findByBankIgnoreCase(bankName);
         if (bankList.get().size() > 0) {
-            response.setData(bankList.get());
+            for (Bank bank : bankList.get()) {
+                if (bank.getBranch() != null && !bank.getBranch().isEmpty() && !branchNameList.get().contains(bank.getBranch())) {
+                    branchNameList.get().add(bank.getBranch());
+                }
+            }
+            response.setData(branchNameList.get());
             response.setStatus("success");
         } else {
             response.setStatus("failed");
-            response.setMessage("No bank found");
+            response.setMessage("No branch found");
             System.out.println("failed");
         }
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<GenericResponse<List<Bank>>> findByBranch(String branchName) {
-        GenericResponse<List<Bank>> response = new GenericResponse<>();
+    public ResponseEntity<GenericResponse<Banks>> findByBranch(String branchName) {
+        GenericResponse<Banks> response = new GenericResponse<>();
         Optional<List<Bank>> bankList = mBankRepository.findByBranchIgnoreCase(branchName);
         if (bankList.get().size() > 0) {
-            response.setData(bankList.get());
+            response.setData(new Banks(bankList.get()));
             response.setStatus("success");
         } else {
             response.setStatus("failed");

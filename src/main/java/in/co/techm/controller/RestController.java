@@ -1,6 +1,7 @@
 package in.co.techm.controller;
 
 import in.co.techm.model.Bank;
+import in.co.techm.model.Banks;
 import in.co.techm.model.GenericResponse;
 import in.co.techm.model.LikeBranchSearch;
 import in.co.techm.service.BankService;
@@ -39,23 +40,23 @@ public class RestController {
 
     @RequestMapping(value = "/api/listbranches/{bankName}", method = RequestMethod.GET)
     @ResponseBody
-    ResponseEntity<GenericResponse<List<Bank>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
+    ResponseEntity<GenericResponse<Set<String>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
         return mBankService.listBranchesByBankName(bankName);
     }
 
     @RequestMapping(value = "/api/branch/{branch}", method = RequestMethod.GET)
     @ResponseBody
-    ResponseEntity<GenericResponse<List<Bank>>> branchesByBranchName(@PathVariable(value = "branch") String branchName) {
+    ResponseEntity<GenericResponse<Banks>> branchesByBranchName(@PathVariable(value = "branch") String branchName) {
         return mBankService.findByBranch(branchName);
     }
 
-    @RequestMapping(value = "/v1/ifsc/{ifsc}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/ifsc/{ifsc}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Bank>> findByIfsc(@PathVariable(value = "ifsc") String ifsc) {
         return mBankService.findByIfsc(ifsc);
     }
 
-    @RequestMapping(value = "/v1/micr/{micrcode}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/v1/micr/{micrcode}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Bank>> findByMicrcode(@PathVariable(value = "micrcode") String micrcode) {
         return mBankService.findByMicrcode(micrcode);
