@@ -2,7 +2,7 @@
 logs
 *.log
 npm-debug.log*
-
+bankDetails.json
 # Runtime data
 pids
 *.pid
@@ -32,3 +32,27 @@ node_modules
 .project
 # Optional REPL history
 .node_repl_history
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

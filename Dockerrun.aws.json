@@ -1,0 +1,13 @@
+{
+    "AWSEBDockerrunVersion": "1",
+      "Image": {
+            "Name": "mangrep/bankapis:v0.0.2",
+            "Update": "true"
+          },
+      "Ports": [
+            {
+                    "ContainerPort": "8080"
+            }
+          ],
+      "Logging": "/var/log/nginx"
+}
