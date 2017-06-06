@@ -1,7 +1,7 @@
 version: "2"
 services:
   bank-apis:
-    image: techm/bank-apis
+    image: mangrep/bankapis
     hostname: "bank-apis"
     working_dir: /bank-apis
     ports: 
