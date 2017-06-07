@@ -1,7 +1,7 @@
 ### Your support will help us ensure continuous quality services. <a href="https://app.quikwallet.com/#partner/243/100" target="_blank">Donate Now</a> 
 
 # Rest API to get details of  NEFT enabled bank Branches (Bank-wise IFS Codes).
-> Note: All details are taken from  [RBI website](https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009) last update 29th Apr, 2017.
+> Note: All details are taken from  [RBI website](https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2009). Last update: 29th Apr, 2017
 
 ### Features provided 
 
