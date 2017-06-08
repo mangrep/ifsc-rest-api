@@ -20,10 +20,10 @@
 
 ### Get supported bank list
 
-#### URI : `http://api.techm.co.in/api/listbanks`
+#### URI : `https://api.techm.co.in/api/listbanks`
 
 Example:
- http://api.techm.co.in/api/listbanks
+ https://api.techm.co.in/api/listbanks
  
  Request Type: GET
  
@@ -40,10 +40,10 @@ Sample failure response:
 
 ### Get branch list by bank name
 
-#### URI : `http://api.techm.co.in/api/listbranches/{bank name}`
+#### URI : `https://api.techm.co.in/api/listbranches/{bank name}`
 
 Example:
- http://api.techm.co.in/api/listbranches/Yes%20bank
+ https://api.techm.co.in/api/listbranches/Yes%20bank
  
  Request Type: GET
  
@@ -62,7 +62,7 @@ Note: Use bank name you get from  **listbanks** api.
 
 ### Get branch details by Bank Name and Branch Name
 
-#### URI : `http://api.techm.co.in/api/getbank/{bank name}/{branch name}`
+#### URI : `https://api.techm.co.in/api/getbank/{bank name}/{branch name}`
 
 Note: You must use bank name and branch name provided in response of listbanks and listbranches api respectively.
 
@@ -86,14 +86,14 @@ Sample failure response:
 
 ### Get bank by IFSC code.
 
-#### URI : `http://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
+#### URI : `https://api.techm.co.in/api/v1/ifsc/{IFSC CODE}`
 
  Request Type: GET
  
  Response Type: JSON
 
 Example:
- http://api.techm.co.in/api/v1/ifsc/SBIN0000138
+ https://api.techm.co.in/api/v1/ifsc/SBIN0000138
 Sample success response:
 
     {"status":"success","data":{"_id":"56e022eed632a3912074f711","STATE":"ANDHRA PRADESH","BANK":"ANDHRA BANK","IFSC":"ANDB0001154","MICR CODE":"500011075","BRANCH":"SAROORNAGAR","CONTACT":"0","ADDRESS":"11-3-25&11-3-26 ABHITEJA HOMES, ROAD NO 11SRI VENKATESWARA COLONY, SAROOR NAGAR, HYD","CITY":"SAROORNAGAR","DISTRICT":"HYDERABAD URBAN","MICRCODE":"500011075"}}
@@ -104,14 +104,14 @@ Sample failure response:
     
 ### Get bank by MICR code
 
-#### URI : `http://api.techm.co.in/api/v1/micr/{MICR CODE}`
+#### URI : `https://api.techm.co.in/api/v1/micr/{MICR CODE}`
 
  Request Type: GET
  
  Response Type: JSON
 
 Example: 
-http://api.techm.co.in/api/v1/micr/842002002
+https://api.techm.co.in/api/v1/micr/842002002
 
 Sample success response:
 
@@ -168,14 +168,14 @@ Sample failure response:
    
     
 #### Get banks by branch location
-URI : `http://api.techm.co.in/api/branch/{BRANCH NAME}`
+URI : `https://api.techm.co.in/api/branch/{BRANCH NAME}`
 
  Request Type: GET
  
  Response Type: JSON
 
 Example:
-http://api.techm.co.in/api/branch/KASHMIR
+https://api.techm.co.in/api/branch/KASHMIR
 
 
 Sample success response
@@ -188,14 +188,14 @@ Sample failure response:
 
 ### Get bank list by district name
 
-#### URI : `http://api.techm.co.in/api/district/{district name}`
+#### URI : `https://api.techm.co.in/api/district/{district name}`
 
  Request Type: GET
 
  Response Type: JSON
 
 Example:
-http://api.techm.co.in/api/district/mumbai
+https://api.techm.co.in/api/district/mumbai
 
 Sample success response:
 
@@ -207,16 +207,16 @@ Sample failure response:
 
 ### Get bank list by state name
 
-#### URI : `http://api.techm.co.in/api/state/{state name}`
+#### URI : `https://api.techm.co.in/api/state/{state name}`
 
  Request Type: GET
 
  Response Type: JSON
 
 Example:
-http://api.techm.co.in/api/state/goa
+https://api.techm.co.in/api/state/goa
 
-http://api.techm.co.in/api/state/Uttar%20pradesh
+https://api.techm.co.in/api/state/Uttar%20pradesh
 
 Sample success response:
 
