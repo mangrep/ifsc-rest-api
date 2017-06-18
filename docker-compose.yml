@@ -1,11 +1,11 @@
 version: "2"
 services:
   bank-apis:
-    image: mangrep/bankapis
+    image: techm/bankapis:v0.0.3
     hostname: "bank-apis"
     working_dir: /bank-apis
     ports: 
       - "8080:8080"
-    command:  bash -c "mongod && java -jar /bank-apis/target/bankAPIs-v0.0.1.jar" &
+    command:  bash -c "java -jar -Xms256m -Xmx1536m  -XX:MaxNewSize=256m /bank-apis/target/bankAPIs-v0.0.3.jar" &
     environment:
       JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64/"
