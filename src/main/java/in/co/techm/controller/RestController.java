@@ -34,7 +34,7 @@ public class RestController {
 
     @RequestMapping(value = "/api/listbanks", method = RequestMethod.GET)
     @ResponseBody
-    ResponseEntity<GenericResponse<Set<String>>> listAllBankName() {
+    ResponseEntity<GenericResponse<String[]>> listAllBankName() {
         return mBankService.listAllBankName();
     }
 
