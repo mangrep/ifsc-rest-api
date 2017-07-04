@@ -68,6 +68,18 @@ public class RestController {
         return mBankService.likeBranchNameSearch(likeBranchSearch);
     }
 
+    @RequestMapping(value = "/api/fuzzySearchBank", method = RequestMethod.POST)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<String>>> fuzzySearchBank(@RequestBody LikeBranchSearch likeBranchSearch) {
+        return mBankService.fuzzySearchBank(likeBranchSearch);
+    }
+
+    @RequestMapping(value = "/api/fuzzySearchBranch", method = RequestMethod.POST)
+    @ResponseBody
+    ResponseEntity<GenericResponse<List<String>>> fuzzySearchBranch(@RequestBody LikeBranchSearch likeBranchSearch) {
+        return mBankService.fuzzySearchBranch(likeBranchSearch);
+    }
+
     @RequestMapping(value = "/api/district/{district}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<List<Bank>>> findByDistrict(@PathVariable(value = "district") String district) {

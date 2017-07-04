@@ -7,6 +7,7 @@ public class LikeBranchSearch implements Serializable {
     private String bankName;
     private String branchName;
     private String source;
+    private int pageLength;
 
     public String getBankName() {
         return bankName;
@@ -32,12 +33,21 @@ public class LikeBranchSearch implements Serializable {
         this.source = source;
     }
 
+    public int getPageLength() {
+        return pageLength;
+    }
+
+    public void setPageLength(int pageLength) {
+        this.pageLength = pageLength;
+    }
+
     @Override
     public String toString() {
         return "LikeBranchSearch{" +
                 "bankName='" + bankName + '\'' +
                 ", branchName='" + branchName + '\'' +
                 ", source='" + source + '\'' +
+                ", pageLength=" + pageLength +
                 '}';
     }
 }
