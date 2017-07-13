@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
       "Image": {
-            "Name": "mangrep/bankapis:v0.0.4",
+            "Name": "mangrep/bankapis:v0.0.5",
             "Update": "true"
           },
       "Ports": [
