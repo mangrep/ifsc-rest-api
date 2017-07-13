@@ -18,7 +18,7 @@ public class RestController {
     @Autowired
     BankService mBankService;
 
-    @RequestMapping(value = "/api/getbank/{bankName}/{branchName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/getbank/{bankName:.+}/{branchName:.+}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Bank>> getBank(@PathVariable(value = "bankName") String bankName,
                                                   @PathVariable(value = "branchName") String branchName) {
@@ -38,13 +38,13 @@ public class RestController {
         return mBankService.listAllBankName();
     }
 
-    @RequestMapping(value = "/api/listbranches/{bankName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/listbranches/{bankName:.+}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Set<String>>> listBranchesByBankName(@PathVariable(value = "bankName") String bankName) {
         return mBankService.listBranchesByBankName(bankName);
     }
 
-    @RequestMapping(value = "/api/branch/{branch}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/branch/{branch:.+}", method = RequestMethod.GET)
     @ResponseBody
     ResponseEntity<GenericResponse<Banks>> branchesByBranchName(@PathVariable(value = "branch") String branchName) {
         return mBankService.findByBranch(branchName);
