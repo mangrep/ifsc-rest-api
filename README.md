@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/mangrep/ifsc-rest-api.svg?branch=master)](https://travis-ci.org/mangrep/ifsc-rest-api)
 
-### Your support will help us ensure continuous quality services. <a href="https://app.quikwallet.com/#partner/243/100" target="_blank">Donate Now</a> 
+### Your support will help us ensure continuous quality services. <a href="http://qwt.me/pay-5697" target="_blank">Donate Now</a> 
 
 # Rest API to get details of NEFT enabled bank branches.
 
