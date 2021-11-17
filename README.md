@@ -1,3 +1,5 @@
+Deprecated
+
 [![Build Status](https://travis-ci.org/mangrep/ifsc-rest-api.svg?branch=master)](https://travis-ci.org/mangrep/ifsc-rest-api)
 
 ### Your support will help me ensure continuous quality services.
